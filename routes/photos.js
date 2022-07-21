@@ -4,7 +4,7 @@
  */
 const router = require('express').Router();
 const { upload } = require('../middleware/multer');
-const { uploadPhotos } = require('../controllers/photos');
+const { uploadPhotos, deletePhoto } = require('../controllers/photos');
 
 /**
  * ////////////////////////// Routes /////////////////////////
@@ -14,6 +14,9 @@ const { uploadPhotos } = require('../controllers/photos');
 
 // Upload
 router.post('/:dir', upload.array('photos'), uploadPhotos);
+
+// Delete
+router.delete('/', deletePhoto);
 
 // Export
 module.exports = router;
