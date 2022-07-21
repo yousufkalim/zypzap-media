@@ -6,7 +6,7 @@ const multer = require('multer');
 const fs = require('fs');
 
 // Multer strategy for local uploading. (Read multer's documentation for more details)
-exports.upload = multer({
+exports.photoUpload = multer({
   // to store images
   storage: multer.diskStorage({
     // Defining the path where we have to store the image
