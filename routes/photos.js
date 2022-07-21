@@ -1,26 +1,19 @@
 /**
- * User CRUD routes
+ * Photo CRUD routes
  * @author Yousuf Kalim
  */
 const router = require('express').Router();
 const { upload } = require('../middleware/multer');
+const { uploadPhotos } = require('../controllers/photos');
 
 /**
  * ////////////////////////// Routes /////////////////////////
- * @method post user signup
- * @method get get all users
- * @method get get user by id
- * @method put update user
- * @method delete delete user
+ * @method post
+ * @method delete
  */
 
-// Create - User Signup
-
-// Read
-
-// Update
-
-// Delete
+// Upload
+router.post('/:dir', upload.array('photos'), uploadPhotos);
 
 // Export
 module.exports = router;

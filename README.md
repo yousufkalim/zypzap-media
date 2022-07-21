@@ -1,4 +1,4 @@
-# Node-JS Boilerplate
+# ZypZap Media Server
 
 Installation steps to run server locally
 

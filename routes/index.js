@@ -5,7 +5,7 @@
 const router = require('express').Router();
 
 // Parent Routes
-router.use('/users', require('./users')); // All the user routes
+router.use('/photos', require('./photos')); // All the photo routes
 
 // Export
 module.exports = router;
