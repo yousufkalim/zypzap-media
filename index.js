@@ -9,8 +9,8 @@ const port = process.env.PORT || 5000;
 // Middleware
 require('./middleware/common')(app);
 
-// API Routes
-app.use('/api', require('./routes'));
+// Media Routes
+app.use('/media', require('./routes'));
 
 // Server
 app.listen(port, () => {
