@@ -28,7 +28,7 @@ exports.videoStream = (req, res) => {
   }
 
   // Ensure there is a range given for the video
-  const range = req.headers.range;
+  const range = req.headers.range || 'bytes=0-';
 
   // get video stats (about 61MB)
   const videoSize = fs.statSync(videoPath).size;
@@ -49,11 +49,6 @@ exports.videoStream = (req, res) => {
     'Content-Type': mimeType,
     'cache-control': 'public, max-age=31536000',
   };
-
-  if (!range) {
-    res.writeHead(200, { 'Content-Length': contentLength, 'Content-Type': mimeType });
-    return fs.createReadStream(path).pipe(res);
-  }
 
   // HTTP Status 206 for Partial Content
   res.writeHead(206, headers);

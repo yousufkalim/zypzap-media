@@ -3,6 +3,7 @@
  * @author Yousuf Kalim
  */
 require('dotenv').config();
+const express = require('express');
 const app = require('express')();
 const port = process.env.PORT || 5000;
 
@@ -10,7 +11,8 @@ const port = process.env.PORT || 5000;
 require('./middleware/common')(app);
 
 // Media Routes
-app.use('/media', require('./routes'));
+app.use('/uploads', require('./routes'));
+app.use('/uploads', express.static('uploads', { maxAge: '31536000' })); // Static path to serve uploaded images with cache policy
 
 // Server
 app.listen(port, () => {

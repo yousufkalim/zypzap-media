@@ -4,7 +4,7 @@
  */
 const router = require('express').Router();
 const { videoUpload } = require('../middleware/multer');
-const { uploadVideos, deleteVideo } = require('../controllers/videos');
+const { uploadVideos, videoStream, deleteVideo } = require('../controllers/videos');
 
 /**
  * ////////////////////////// Routes /////////////////////////
@@ -14,6 +14,9 @@ const { uploadVideos, deleteVideo } = require('../controllers/videos');
 
 // Upload
 router.post('/:dir', videoUpload.array('videos'), uploadVideos);
+
+// Stream
+router.get('/:dir/:video', videoStream);
 
 // Delete
 router.delete('/', deleteVideo);
