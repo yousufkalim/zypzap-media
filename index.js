@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 require('./middleware/common')(app);
 
 // Media Routes
+app.get('/', (req, res) => res.send('ZypZap media server'));
 app.use('/uploads', require('./routes'));
 app.use('/uploads', express.static('uploads', { maxAge: '31536000' })); // Static path to serve uploaded images with cache policy
 
